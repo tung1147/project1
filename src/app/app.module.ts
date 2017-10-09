@@ -1,14 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppRouting } from './app.routing';
+import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { PageNotFoundComponent } from './components/shared/pagenotfound.component';
+import { HomeComponent } from './components/home/home.component';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { CriticalComponent } from './components/tabs/critical/critical.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    PageNotFoundComponent,
+    TabsComponent,
+    CriticalComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRouting,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

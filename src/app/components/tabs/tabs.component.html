@@ -1,0 +1,9 @@
+<h1>This is tabs</h1>
+<div class="tabs-vertical-header">
+  <div *ngFor='let h of verticalItems' class="tabs-vertical-item">
+    {{h.name}}
+  </div>
+</div>
+<div class="tabs-vertical-content">
+  <router-outlet></router-outlet>
+</div>

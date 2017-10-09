@@ -1,0 +1,8 @@
+.vertical-center {
+  min-height: calc(100vh - 75px);
+}
+
+.bimg {
+  background: url(/assets/images/models-22.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
