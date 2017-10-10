@@ -16,7 +16,7 @@ import {MenuComponent} from './menu/menu.component';
     PctComponent,
     StatusBarComponent,
     MenuItemComponent,
-    MenuItemComponent
+    MenuComponent
   ],
   imports: [
     BrowserModule,

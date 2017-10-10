@@ -13,7 +13,7 @@ export class PctComponent implements OnInit {
     setInterval(()=>{
       this.statusBarIndex ++;
       this.statusBarIndex = this.statusBarIndex % 5
-    }, 300);
+    }, 3000);
   }
 
 

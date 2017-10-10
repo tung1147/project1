@@ -1,1 +1,8 @@
-{{title}}
+<div class="item-name"  [ngClass]="{'active' : data.active}" (click)="setActive()">{{data.name}}</div>
+<div *ngIf="data.active && data.children && data.children.length > 0">
+    <div *ngFor="let child of data.children" class="item-name item-child" 
+    [ngClass]="{'active' : child.active}" (click)="setChildActive(child)">
+        {{child.name}}
+    </div>
+
+</div>

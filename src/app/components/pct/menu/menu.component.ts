@@ -9,34 +9,63 @@ import {Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter} from 
   templateUrl: './menu.component.html'
 })
 export class MenuComponent {
-  @Input() activeIndex:any = 0;
+  //@Input() activeIndex:any = 0;
 
   items : Array<any>;
 
-  subTabs = ;
   verticalTabs = [{
     name : 'NPI/Tooling/Accessories',
-    children : [
-      'NPI/Tooling/Accessories',
-      'ECO Summary',
-      'Service Parent/Child',
-      'PCA Summary',
-      'Notes + Docs', 'Group Summary', 'Part Attributes', 'Part Disposition', 'Service Impact'
+    active : false,
+    children : [{
+      name : 'NPI/Tooling/Accessories'
+    },
+    {
+      name : 'ECO Summary'
+    },
+    {
+      name : "Service Parent/Child"
+    },
+    {
+      name : 'Notes'
+    },
+    {
+      name : 'Notes + Docs'
+    },
+    {
+      name : 'Group Summary'
+    },
+    {
+      name : 'Part Attributes'
+    },{
+      name : 'Part Disposition'
+    },{
+      name : 'Service Impact'
+    }
     ]
   }
     ,{
-    name : 'Service Pricing'
+    name : 'Service Pricing',
+    active : false
     }
     ,{
-    name : 'Demand Planning'
+    name : 'Demand Planning',
+    active : false
     }
     ,{
-    name : 'Procurement, GSMs + MRP'
+    name : 'Procurement, GSMs + MRP',
+    active : false
     }
     ,
   ];
 
   constructor() {
 
+  }
+
+  onClickItem(item){
+    this.verticalTabs.forEach((_item)=>{
+      _item.active = false;
+    })
+    item.active = true;
   }
 }

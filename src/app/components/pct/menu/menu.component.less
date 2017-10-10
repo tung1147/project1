@@ -1,0 +1,23 @@
+.menu-wrap{
+    width: 200px;
+}
+.item-name{
+    border : 2px solid black;
+    width : 200px;
+    height : 40px;
+    padding : 5px;
+    text-align: left;
+    background-color: grey;
+    &.active {
+        background-color: white;
+    }
+    &.item-child{
+        width : 150px;
+        margin-left: 50px;
+        text-align: center; 
+        background-color: white;
+        &.active{
+            background-color: blue;
+        }
+    }
+}
