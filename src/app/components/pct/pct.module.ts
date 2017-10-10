@@ -7,12 +7,16 @@ import {MaterialModule} from '@angular/material';
 
 import {PctComponent} from './pct.component';
 import {StatusBarComponent} from './statusBar/statusBar.component';
+import {MenuItemComponent} from './menu/item.component';
+import {MenuComponent} from './menu/menu.component';
 
 
 @NgModule({
   declarations: [
     PctComponent,
-    StatusBarComponent
+    StatusBarComponent,
+    MenuItemComponent,
+    MenuItemComponent
   ],
   imports: [
     BrowserModule,

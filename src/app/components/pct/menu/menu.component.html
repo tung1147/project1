@@ -1,0 +1,6 @@
+<div *ngFor=" let item in verticalTabs">
+  {{item.name}}
+  {item.children && <div *ngFor="let child in item.children">
+  {{child}}
+</div>}
+</div>
