@@ -1,0 +1,5 @@
+<div class="status-bar">
+  <div *ngFor='let item of items; let i=index' class="status-bar-item"  [ngClass]="{'active' : i == activeIndex}">
+    {{item.name}}
+  </div>
+</div>

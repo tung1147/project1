@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { AppRouting } from './app.routing';
 import { MaterialModule } from '@angular/material';
 
+// import custorm modules
+import {PCTModule} from './components/pct/pct.module';
+
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/shared/pagenotfound.component';
 import { HomeComponent } from './components/home/home.component';
@@ -20,7 +23,8 @@ import { CriticalComponent } from './components/tabs/critical/critical.component
   imports: [
     BrowserModule,
     AppRouting,
-    MaterialModule
+    MaterialModule,
+    PCTModule
   ],
   providers: [],
   bootstrap: [AppComponent]
