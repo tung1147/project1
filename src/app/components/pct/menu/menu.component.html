@@ -1,8 +1,6 @@
-
 <div class="menu-wrap">
-    <div *ngFor=" let item of verticalTabs" class="item-parent"
-    [ngClass]="{'light' : item.active && (!item.children || (item.children && item.children.length == 0 ) )}">
-      <app-menu-item [data]="item" (onClick)="onClickItem($event)"></app-menu-item>
-   </div>
+  <div *ngFor=" let item of verticalTabs"  [ngClass]="{'light' : item.active && (!item.children || (item.children && item.children.length == 0 ) )}">
+    <menu-item class="item-child" [data]="item" (onClick)="onClickItem($event)"></menu-item>
+  </div>
 
 </div>

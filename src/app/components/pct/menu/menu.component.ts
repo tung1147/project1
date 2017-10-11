@@ -2,6 +2,7 @@
  * Created by admin on 10/10/17.
  */
 import {Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter} from '@angular/core';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-menu',
@@ -9,51 +10,61 @@ import {Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter} from 
   templateUrl: './menu.component.html'
 })
 export class MenuComponent {
-  //@Input() activeIndex:any = 0;
 
-  items : Array<any>;
+  @Output() onSelectItem = new EventEmitter<any>();
+
+  items: Array<any>;
 
   verticalTabs = [{
-    name : 'NPI/Tooling/Accessories',
-    active : false,
-    children : [{
-      name : 'NPI/Tooling/Accessories'
-    },
-    {
-      name : 'ECO Summary'
-    },
-    {
-      name : "Service Parent/Child"
-    },
-    {
-      name : 'Notes'
-    },
-    {
-      name : 'Notes + Docs'
-    },
-    {
-      name : 'Group Summary'
-    },
-    {
-      name : 'Part Attributes'
-    },{
-      name : 'Part Disposition'
-    },{
-      name : 'Service Impact'
-    }
-    ]
+    name: 'NPI/Tooling/Accessories',
+    active: false,
+    code: "",
+    children: [
+      {
+        name: 'ECO Summary',
+        code: "ECOSummaryComponent"
+      },
+      {
+        name: 'Service Parent/Child',
+        code: "ServiceParentChildComponent"
+      },
+      {
+        name: 'Notes',
+        code: "NotesDocsComponent"
+      },
+      {
+        name: 'Notes + Docs',
+        code: "NotesDocsComponent"
+      },
+      {
+        name: 'Group Summary',
+        code: "GroupSummaryComponent"
+      },
+      {
+        name: 'Part Attributes',
+        code: "PartAttributeComponent"
+      }, {
+        name: 'Part Disposition',
+        code: "PartDispositionComponent"
+      }, {
+        name: 'Service Impact',
+        code: "ServiceImpactComponent"
+      }]
   }
-    ,{
-    name : 'Service Pricing',
-    active : false
+    , {
+      name: 'Service Pricing',
+      active: false,
+      code: "ServicePricingComponent"
     }
-    ,{
-    name : 'Demand Planning',
-    active : false
+    , {
+      name: 'Demand Planning',
+      active: false,
+      code: "DemandPlanningComponent"
     }
-    ,{
-    name : 'Procurement, GSMs + MRP',
-    active : false
+    , {
+      name: 'Procurement, GSMs + MRP',
+      active: false,
+      code: "ProcurementComponent"
     }
     ,
   ];
@@ -62,10 +73,13 @@ export class MenuComponent {
 
   }
 
-  onClickItem(item){
-    this.verticalTabs.forEach((_item)=>{
+  onClickItem(data) {
+    !data.isChild && this.verticalTabs.forEach((_item) => {
       _item.active = false;
-    })
-    item.active = true;
+    });
+    data.item.active = true;
+    if(data.item.code){
+      this.onSelectItem.emit(data.item.code);
+    }
   }
 }

@@ -1,4 +1,12 @@
+<app-select-user></app-select-user>
+
 <app-status-bar [activeIndex]="statusBarIndex"></app-status-bar>
-<div>
-  <app-menu></app-menu>
+
+<div class="content-wrapper">
+  <!--<app-menu (onSelectItem)="showComponent($event)" )></app-menu>-->
+  <app-menu (onSelectItem)="showComponent($event)"></app-menu>
+  <div class="ptc-content">
+    <ng-template ptc-item ></ng-template>
+  </div>
 </div>
+
