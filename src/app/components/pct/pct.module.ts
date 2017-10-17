@@ -2,7 +2,7 @@
  * Created by Admin on 10/10/2017.
  */
 import {BrowserModule} from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
 import {MaterialModule} from '@angular/material';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -12,6 +12,7 @@ import {PctComponent} from './pct.component';
 import {StatusBarComponent} from './statusBar/statusBar.component';
 import {MenuItemComponent} from './menu/menu-item.component';
 import {MenuComponent} from './menu/menu.component';
+import {PCTHeaderComponent} from './header/header.component'
 
 import {DemandPlanningComponent} from './component/demandPlanning/demandPlanning.component';
 import {ECOSummaryComponent} from './component/ECOSummary/ECOSummary.component';
@@ -29,7 +30,9 @@ import {SelectUserComponent} from "./selectUser/selectUser.component"
 
 import {PTCItemDirective} from  './component/ptcItem.directive';
 import {PTCItemService} from './ptcItem.service';
-import {RoleService} from './role.service';
+import {RoleService} from './services/role.service';
+import {UserService} from './services/user.service';
+import {PTCNumbersService} from './services/pctNumbers.service';
 
 
 @NgModule({
@@ -38,6 +41,7 @@ import {RoleService} from './role.service';
     StatusBarComponent,
     MenuItemComponent,
     MenuComponent,
+    PCTHeaderComponent,
 
     PTCItemDirective,
     DemandPlanningComponent,
@@ -58,13 +62,17 @@ import {RoleService} from './role.service';
     BrowserModule,
     MaterialModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [PTCItemService, RoleService],
+  providers: [PTCItemService,
+    RoleService,
+    UserService,
+    PTCNumbersService
+  ],
   exports: [PctComponent],
-  bootstrap: [],
 
-  entryComponents: [ DemandPlanningComponent,
+  entryComponents: [DemandPlanningComponent,
     ECOSummaryComponent,
     GroupSummaryComponent,
     NotesDocsComponent,
@@ -74,7 +82,8 @@ import {RoleService} from './role.service';
     ProcurementComponent,
     ServiceImpactComponent,
     ServiceParentChildComponent,
-    ServicePricingComponent ]
+    ServicePricingComponent],
+  bootstrap: [PctComponent]
 })
 export class PCTModule {
 }

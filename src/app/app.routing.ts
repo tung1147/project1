@@ -1,7 +1,7 @@
 import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {PageNotFoundComponent} from './components/shared/pagenotfound.component';
-import {HomeComponent} from './components/home/home.component';
+import {PCTModule} from './components/pct/pct.module';
 
 import {PctComponent} from './components/pct/pct.component';
 

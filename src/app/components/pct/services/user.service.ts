@@ -5,8 +5,8 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 
 @Injectable()
-export class RoleService {
-  private role: String = "admin";
+export class UserService {
+  private role: string = "admin";
   roleChange: Subject<string> = new Subject<string>();
 
   setRole(role) {
@@ -18,4 +18,20 @@ export class RoleService {
   getRole() {
     return this.role;
   }
+
+  getUser() {
+    return [
+      new User("aguero","admin"),
+      new User("sheva","user"),
+      new User("torres","user")
+    ];
+  }
+}
+
+
+class User {
+  constructor (
+    username : string,
+    role : string
+  ){}
 }
